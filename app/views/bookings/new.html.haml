@@ -1,0 +1,38 @@
+%h1 Book A Room
+= form_for(@booking) do |f|
+  = f.label :room_type
+  = f.select :room_type, options_for_select(Room::TYPE, :selected => f.object.room_type)
+  %br
+  = f.label :total_user
+  = f.select :total_user, options_for_select((1..9).to_a)
+  %br/
+  = f.label 'Check in'
+  = f.date_field :start_date
+  %br/
+  = f.label 'Check out'
+  = f.date_field :end_date
+  %br/  
+  = f.submit 'Submit'
+
+%table.table-hover
+  %thead
+    %tr
+      %th{:colspan => 2} Pricing
+    %tr
+      %th Room Type
+      %th Price
+  
+  %tbody
+    %tr
+      %td Deluxe Rooms - Queen Size Bed 
+      %td Rs 7000/night
+    %tr
+      %td Luxury Rooms - Queen Size Bed and Pool Facing
+      %td Rs 8500/night
+    %tr
+      %td Luxury Suites - King Size Bed and Pool Facing
+      %td Rs 12000/night
+    %tr
+      %td Presidential Suites - King Size Bed, Pool Facing with a Gym
+      %td Rs 20000/night
+        

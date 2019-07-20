@@ -1,0 +1,54 @@
+#main
+  %table.table-hover
+    %thead
+      %tr
+        %th{:colspan => 3} Available Rooms
+      %tr
+        %th Room Type
+        %th Price
+        %th Action
+    %tbody
+      %tr
+        %td Deluxe Rooms - Queen Size Bed 
+        %td Rs 7000/night
+        %td= link_to 'Book Now', new_booking_path(:room_type => 'Deluxe Rooms')
+      %tr
+        %td Luxury Rooms - Queen Size Bed and Pool Facing
+        %td Rs 8500/night
+        %td= link_to 'Book Now', new_booking_path(:room_type => 'Deluxe Rooms')
+      %tr
+        %td Luxury Suites - King Size Bed and Pool Facing
+        %td Rs 12000/night
+        %td= link_to 'Book Now', new_booking_path(:room_type => 'Deluxe Rooms')
+      %tr
+        %td Presidential Suites - King Size Bed, Pool Facing with a Gym
+        %td Rs 20000/night
+        %td= link_to 'Book Now', new_booking_path(:room_type => 'Deluxe Rooms')
+  %br
+  - if user_signed_in?
+    - if @bookings.blank?
+      %p You havent book any hotel yet.
+    - else
+      %table.table-hover
+        %thead
+          %tr
+            %th{:colspan => 8} Previous Booking
+          %tr
+            %th Email
+            %th Room No
+            %th Room Type
+            %th Price/night
+            %th Start Date
+            %th End Date
+            %th Users
+            %th Final Price
+        - @bookings.each do |booking|
+          %tr
+            %td= booking.user.email
+            %td= booking.room.room_no 
+            %td= booking.room_type
+            %td= booking.price
+            %td= booking.start_date
+            %td= booking.end_date
+            %td= booking.total_user
+            %td= booking.final_price

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  room_type: MyString
+  user_id: 1
+  room_id: 1
+  start_date: 2019-07-19
+  end_date: 2019-07-19
+  total_user: 1
+
+two:
+  room_type: MyString
+  user_id: 1
+  room_id: 1
+  start_date: 2019-07-19
+  end_date: 2019-07-19
+  total_user: 1
